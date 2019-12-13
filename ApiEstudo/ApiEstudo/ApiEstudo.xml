@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiEstudo</name>
+    </assembly>
+    <members>
+        <member name="T:ApiEstudo.Controllers.WeatherForecastController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ApiEstudo.Controllers.WeatherForecastController.#ctor(Microsoft.Extensions.Logging.ILogger{ApiEstudo.Controllers.WeatherForecastController})">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:ApiEstudo.Controllers.WeatherForecastController.Get">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ApiEstudo.Program">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ApiEstudo.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:ApiEstudo.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ApiEstudo.Startup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ApiEstudo.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:ApiEstudo.Startup.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ApiEstudo.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:ApiEstudo.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+        <member name="T:ApiEstudo.WeatherForecast">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ApiEstudo.WeatherForecast.Date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ApiEstudo.WeatherForecast.TemperatureC">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ApiEstudo.WeatherForecast.TemperatureF">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ApiEstudo.WeatherForecast.Summary">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>
