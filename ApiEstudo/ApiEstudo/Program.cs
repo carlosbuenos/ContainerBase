@@ -28,7 +28,7 @@ namespace ApiEstudo
 				{
 					webBuilder.UseStartup<Startup>().UseKestrel(options =>
 					{
-						options.Listen(IPAddress.Any, 80);
+						options.Listen(IPAddress.Any, 81);
 					});
 				});
 	}

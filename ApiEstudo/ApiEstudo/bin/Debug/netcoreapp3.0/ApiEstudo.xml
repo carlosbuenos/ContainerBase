@@ -4,6 +4,42 @@
         <name>ApiEstudo</name>
     </assembly>
     <members>
+        <member name="T:ApiEstudo.Controllers.EstudoPubSubController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ApiEstudo.Controllers.EstudoPubSubController.CreateTopic(ApiEstudo.ApiModel.CreatTopicModel)">
+            <summary>
+             Passe o valor do projectId = estudogcp-261420
+             Passe o id do topico desejado.
+            </summary>
+            <param name="attr"></param>
+        </member>
+        <member name="M:ApiEstudo.Controllers.EstudoPubSubController.ListTopics(ApiEstudo.ApiModel.CreatTopicModel)">
+            <summary>
+            Passe apenas o valor do projectId = estudogcp-261420
+            </summary>
+            <param name="attr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApiEstudo.Controllers.EstudoPubSubController.PublishToTopic(ApiEstudo.ApiModel.CreatTopicModel)">
+            <summary>
+            Passe o valor do projectId = estudogcp-261420
+            Passe o id do topico desejado
+            Passe a mensagem desejada
+            </summary>
+            <param name="attr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApiEstudo.Controllers.EstudoPubSubController.ShowMessagesForSubscription(ApiEstudo.ApiModel.CreatTopicModel)">
+            <summary>
+            Passe o valor do projectId = estudogcp-261420
+            passe o valor do subscriptionID
+            </summary>
+            <param name="attr"></param>
+            <returns></returns>
+        </member>
         <member name="T:ApiEstudo.Controllers.WeatherForecastController">
             <summary>
             
