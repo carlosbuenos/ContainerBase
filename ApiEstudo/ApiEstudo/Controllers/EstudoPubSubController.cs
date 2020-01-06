@@ -40,7 +40,7 @@ namespace ApiEstudo.Controllers
 		[Route("CriarTopico")]
 		public void CreateTopic([FromBody]CreatTopicModel attr)
 		{
-			var credential = GoogleCredential.FromFile(@"C:\gCredentials\estudogcp-261420-2a979ebda616.json");
+			//var credential = GoogleCredential.FromFile(@"C:\gCredentials\estudogcp-261420-2a979ebda616.json");
 			// Creates the new topic
 
 			PublisherServiceApiClient publisherService = PublisherServiceApiClient.Create();
