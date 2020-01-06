@@ -9,3 +9,4 @@
 *.ide-shm
 *.ide-wal
 *.suo
+*.dtbcache
