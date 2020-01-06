@@ -117,6 +117,7 @@ namespace ApiEstudo.Controllers
 		[Route("RecuperarMensagemNoTopico")]
 		public IEnumerable<ListaRetorno> ShowMessagesForSubscription([FromBody]CreatTopicModel attr)
 		{
+
 			List<ListaRetorno> retorno = new List<ListaRetorno>();
 
 			var subscriptionName = new SubscriptionName(attr.projectId, attr.subscriptionID);
