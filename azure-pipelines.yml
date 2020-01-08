@@ -1,10 +1,4 @@
 trigger:
-- task: Docker@2
-  inputs:
-    containerRegistry: 'gcr_teste'
-    repository: 'EstudiCICD'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
 - master
 
 resources:
@@ -29,3 +23,9 @@ stages:
         dockerfile: 'ApiEstudo/Dockerfile'
         tags: |
           $(tag)
+- task: Docker@2
+  inputs:
+    containerRegistry: 'gcr_teste'
+    repository: 'EstudiCICD'
+    command: 'buildAndPush'
+    Dockerfile: 'ApiEstudo/Dockerfile'
