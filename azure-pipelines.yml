@@ -19,13 +19,8 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        command: build
+        containerRegistry: 'gcr_teste'
+        command: buildAndPush
         dockerfile: 'ApiEstudo/Dockerfile'
         tags: |
           $(tag)
-- task: Docker@2
-  inputs:
-    containerRegistry: 'gcr_teste'
-    repository: 'EstudiCICD'
-    command: 'buildAndPush'
-    Dockerfile: 'ApiEstudo/Dockerfile'
