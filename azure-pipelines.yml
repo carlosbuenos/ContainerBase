@@ -1,4 +1,9 @@
-
+- task: Docker@2
+  inputs:
+    containerRegistry: 'gcr_teste'
+    repository: 'apiestudo'
+    command: 'buildAndPush'
+    Dockerfile: 'ApiEstudo/Dockerfile'
 trigger:
 - master
 
