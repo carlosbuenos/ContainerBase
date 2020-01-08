@@ -20,7 +20,7 @@ stages:
       displayName: Build an image
       inputs:
         containerRegistry: 'gcr_teste'
-        repository: 'EstudiCICD'
+        repository: 'carlosbuenos/ContainerBase'
         command: buildAndPush
         dockerfile: 'ApiEstudo/Dockerfile'
         tags: |
