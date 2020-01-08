@@ -1,0 +1,38 @@
+﻿resources:
+- repo: self
+  fetchDepth: 1
+queue:
+  name: Hosted Ubuntu 1604
+trigger:
+- testing
+variables:
+  TargetFramework: 'netcoreapp3.0'
+  RestoreBuildProjects: *.csproj'
+  BuildConfiguration: 'Release'
+  DockerImageName: 'estudo-ci-cd/apiestudo'
+steps:
+- task: DotNetCoreCLI@2
+  displayName: Restore
+  inputs:
+    command: restore
+    projects: '$(RestoreBuildProjects)'
+    feedsToUse: config
+    nugetConfigPath: NuGet.config
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    projects: '$(RestoreBuildProjects)'
+    arguments: '--configuration $(BuildConfiguration) --framework=$(TargetFramework)'
+- task: DotNetCoreCLI@2
+  displayName: Test
+  inputs:
+    command: test
+    arguments: '--configuration $(BuildConfiguration) --framework=$(TargetFramework)'
+- task: DotNetCoreCLI@2
+  displayName: Publish
+  inputs:
+    command: publish
+    publishWebProjects: True
+    arguments: '--configuration $(BuildConfiguration) --framework=$(TargetFramework)'
+    zipAfterPublish: false
+    modifyOutputPath: false
