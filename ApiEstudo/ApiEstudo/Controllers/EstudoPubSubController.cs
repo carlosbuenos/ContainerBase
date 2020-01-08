@@ -57,24 +57,25 @@ namespace ApiEstudo.Controllers
 		[Route("ListarTopicos")]
 		public IEnumerable<string> ListTopics([FromBody]CreatTopicModel attr)
 		{
+			List<string> retorno = new List<string>();
 			try
 			{
 				// List all topics for the project
 				PublisherServiceApiClient publisher = PublisherServiceApiClient.Create();
 				var topics = publisher.ListTopics(new ProjectName(attr.projectId));
-				List<string> retorno = new List<string>();
+				
 				foreach (Topic topic1 in topics)
 				{
 					retorno.Add(topic1.Name);
 				}
-				return retorno;
+				
 			}
 			catch (Exception ex)
 			{
 
-				throw ex;
+				retorno.Add(ex.Message+"-------"+ ex.StackTrace);
 			}
-			
+			return retorno;
 		}
 		/// <summary>
 		/// Passe o valor do projectId = estudogcp-261420
