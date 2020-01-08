@@ -1,4 +1,10 @@
 trigger:
+- task: Docker@2
+  inputs:
+    containerRegistry: 'gcr_teste'
+    repository: 'EstudiCICD'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
 - master
 
 resources:
