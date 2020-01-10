@@ -25,10 +25,16 @@ stages:
         dockerfile: 'ApiEstudo/Dockerfile'
         tags: |
           $(tag)
+
+    - task: CmdLine@1
+      displayName: Lock File Mnifest
+      inputs:
+        filename: /bin/bash
+        arguments: '-c "awk ''{gsub(\"ApiEstudo\", \"gcr.io/$(DockerImageName):$(Build.BuildId)\", $0); print}'' deployment.yaml > $(build.artifactstagingdirectory)/deployment.yaml"'
     - task: KubernetesManifest@0
       displayName: Publish an image to GKE
       inputs:
         action: 'deploy'
         kubernetesServiceConnection: 'clbueno-1'
         namespace: 'ApiEstudo'
-        manifests: 'manifest/drop/deployment.yaml'
+        manifests: '/bin/bash/deployment.yaml'
