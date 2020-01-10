@@ -31,10 +31,15 @@ stages:
       inputs:
         filename: /bin/bash
         arguments: '-c "awk ''{gsub(\"ApiEstudo\", \"gcr.io/$(DockerImageName):$(Build.BuildId)\", $0); print}'' deployment.yaml > $(build.artifactstagingdirectory)/deployment.yaml"'
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact'
+      inputs:
+       PathtoPublish: '$(build.artifactstagingdirectory)'
     - task: KubernetesManifest@0
       displayName: Publish an image to GKE
       inputs:
         action: 'deploy'
         kubernetesServiceConnection: 'clbueno-1'
         namespace: 'apiestudo'
-        manifests: '/home/vsts/work/1/a/deployment.yaml'
+        manifests: '$(build.artifactstagingdirectory)'
