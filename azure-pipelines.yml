@@ -25,3 +25,8 @@ stages:
         dockerfile: 'ApiEstudo/Dockerfile'
         tags: |
           $(tag)
+      inputs:
+        action: 'deploy'
+        kubernetesServiceConnection: 'clbueno-1'
+        namespace: 'apiestudo'
+        manifests: '/ApiEstudo/deployment.yaml'
