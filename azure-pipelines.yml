@@ -37,4 +37,4 @@ stages:
         action: 'deploy'
         kubernetesServiceConnection: 'clbueno-1'
         namespace: 'ApiEstudo'
-        manifests: '/bin/bash/deployment.yaml'
+        manifests: 'manifest/drop/deployment.yaml'
