@@ -36,5 +36,4 @@ stages:
       inputs:
         action: 'deploy'
         kubernetesServiceConnection: 'clbueno-1'
-        namespace: 'ApiEstudo'
         manifests: '/home/vsts/work/1/a/deployment.yaml'
