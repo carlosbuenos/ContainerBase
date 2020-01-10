@@ -25,3 +25,10 @@ stages:
         dockerfile: 'ApiEstudo/Dockerfile'
         tags: |
           $(tag)
+    - task: KubernetesManifest@0
+      displayName: Publish an image to GKE
+      inputs:
+        action: 'deploy'
+        kubernetesServiceConnection: 'clbueno-1'
+        namespace: 'ApiEstudo'
+        manifests: 'manifest/drop/deployment.yaml'
