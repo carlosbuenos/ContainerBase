@@ -26,7 +26,7 @@ spec:
 
 kind: Deployment
 metadata:
-  name: apiestudo-deploy
+  name: apiestudo
 spec:
   replicas: 2
   template:
