@@ -29,7 +29,7 @@ kind: Deployment
 metadata:
   name: apiestudo
 spec:
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
