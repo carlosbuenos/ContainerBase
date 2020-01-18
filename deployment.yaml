@@ -33,7 +33,7 @@ spec:
   template:
     metadata:
       labels:
-        app: ApiEstudo
+        app: apiestudo
     spec:
       containers:
       - name: apiestudo
