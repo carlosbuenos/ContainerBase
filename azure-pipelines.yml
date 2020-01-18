@@ -6,7 +6,7 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
-  DockerImageName: 'estudo-ci-cd/ApiEstudo'
+  DockerImageName: 'ApiEstudo'
 
 stages:
 - stage: Build
@@ -38,6 +38,7 @@ stages:
       displayName: 'Publish Artifact'
       inputs:
        PathtoPublish: '$(build.artifactstagingdirectory)'
+
     - task: KubernetesManifest@0
       displayName: Publish an image to GKE
       inputs:
