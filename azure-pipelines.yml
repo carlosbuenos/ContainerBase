@@ -6,7 +6,7 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
-  imageName: 'ApiEstudo-Image'
+  imageName: 'ApiEstudo'
 
 stages:
 - stage: Build
