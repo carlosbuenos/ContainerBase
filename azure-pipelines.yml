@@ -42,3 +42,4 @@ stages:
         action: 'deploy'
         kubernetesServiceConnection: 'clbueno-1'
         namespace: 'default'
+        manifests: '$(build.artifactstagingdirectory)/deployment.yaml'
