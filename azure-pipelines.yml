@@ -6,7 +6,7 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
-  DockerImageName: 'estudo-ci-cd/ApiEstudo'
+  DockerImageName: 'estudo-ci-cd/apiestudo'
   RepositoryName: 'estudo-ci-cd/apiestudo'
 stages:
 - stage: Build

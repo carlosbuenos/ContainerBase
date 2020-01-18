@@ -37,7 +37,7 @@ spec:
     spec:
       containers:
       - name: apiestudo
-        image: ApiEstudo
+        image: apiestudo
         ports:
           - containerPort: 81
         livenessProbe:     
