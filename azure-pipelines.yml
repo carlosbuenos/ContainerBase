@@ -13,7 +13,6 @@ stages:
   displayName: Build image
   jobs:  
   - job: Build
-    container: "$(imageName)"
     displayName: Build
     pool:
       vmImage: 'ubuntu-latest'
