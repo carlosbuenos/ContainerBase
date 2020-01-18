@@ -33,14 +33,11 @@ spec:
   template:
     metadata:
       labels:
-        app: apiestudo
+        app: ApiEstudo
     spec:
       containers:
       - name: apiestudo
         image: ApiEstudo
-        ports:
-          - containerPort: 81
-            targetPort: 81
         livenessProbe:     
           httpGet:
             path: /
