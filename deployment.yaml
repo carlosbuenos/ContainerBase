@@ -37,7 +37,6 @@ spec:
     spec:
       containers:
       - name: apiestudo
-        image: gcr.io/estudo-ci-cd/ApiEstudo:109
         ports:
           - containerPort: 81
         livenessProbe:     
