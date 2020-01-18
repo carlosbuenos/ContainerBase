@@ -1,19 +1,29 @@
 ﻿apiVersion: v1
 kind: Service
 metadata:
-  name: ApiEstudo
+  name: apiestudo
 spec:
   ports:
   - port: 81
-    targetPort: 81
+  - targetPort: 81
     protocol: TCP
     name: http
   selector:
     app: apiestudo
   type: NodePort
 
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: apiestudo
+spec:
+  backend:
+    serviceName: apiestudo
+    servicePort: 81
 
 ---
+
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -27,16 +37,16 @@ spec:
     spec:
       containers:
       - name: apiestudo
-        image: ApiEstudo
+        image: estudo-ci-cd/ApiEstudo:107
         ports:
           - containerPort: 81
-        livenessProbe:      # Used by deployment controller
+        livenessProbe:     
           httpGet:
             path: /
             port: 81
           initialDelaySeconds: 5
           periodSeconds: 5
-        readinessProbe:     # Used by Ingress/GCLB
+        readinessProbe:    
           httpGet:
             path: /
             port: 81
