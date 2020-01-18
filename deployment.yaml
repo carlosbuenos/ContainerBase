@@ -29,7 +29,7 @@ kind: Deployment
 metadata:
   name: apiestudo
 spec:
-  replicas: 1
+  replicas: 4
   template:
     metadata:
       labels:
@@ -40,6 +40,7 @@ spec:
         image: ApiEstudo
         ports:
           - containerPort: 81
+            targetPort:81
         livenessProbe:     
           httpGet:
             path: /
@@ -54,6 +55,6 @@ spec:
           periodSeconds: 5
         resources:
           limits:
-            memory: 1024Mi
+            memory: 4024Mi
           requests:
-            memory: 768Mi
+            memory: 1024Mi
