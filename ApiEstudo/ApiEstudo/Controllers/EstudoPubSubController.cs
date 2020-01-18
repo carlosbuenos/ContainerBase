@@ -22,34 +22,56 @@ namespace ApiEstudo.Controllers
 	[ApiController]
 	public class EstudoPubSubController : ControllerBase
 	{
+		/// <summary>
+		/// 
+		/// </summary>
 		private const string ProjectId = "";
+		/// <summary>
+		/// 
+		/// </summary>
 		private const string TopicId = "";
+		/// <summary>
+		/// 
+		/// </summary>
 		private const string SubscriptionId = "";
-
+		/// <summary>
+		/// 
+		/// </summary>
 		private readonly ILogger<EstudoPubSubController> _logger;
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="logger"></param>
 		public EstudoPubSubController(ILogger<EstudoPubSubController> logger)
 		{
 			_logger = logger;
 		}
 		/// <summary>
-		///  Passe o valor do projectId = estudogcp-261420
-		///  Passe o id do topico desejado.
+		///  Passe o valor do projectId = estudo-ci-cd
+		///  Passe o id do topico desejado = tp-negocio-ex.
 		/// </summary>
 		/// <param name="attr"></param>
 		[HttpPost]
 		[Route("CriarTopico")]
-		public void CreateTopic([FromBody]CreatTopicModel attr)
+		public string CreateTopic([FromBody]CreatTopicModel attr)
 		{
-			//var credential = GoogleCredential.FromFile(@"C:\gCredentials\estudogcp-261420-2a979ebda616.json");
-			// Creates the new topic
+			try
+			{
+				PublisherServiceApiClient publisherService = PublisherServiceApiClient.Create();
+				TopicName topicName = new TopicName(attr.projectId, attr.topicId);
+				publisherService.CreateTopic(topicName);
+				return topicName.TopicId;
+			}
+			catch (Exception ex)
+			{
 
-			PublisherServiceApiClient publisherService = PublisherServiceApiClient.Create();
-			TopicName topicName = new TopicName(attr.projectId, attr.topicId);
-			publisherService.CreateTopic(topicName);
+				return ex.Message;
+			}
+
 		}
 
 		/// <summary>
-		/// Passe apenas o valor do projectId = estudogcp-261420
+		/// Passe apenas o valor do projectId = estudo-ci-cd
 		/// </summary>
 		/// <param name="attr"></param>
 		/// <returns></returns>
@@ -63,23 +85,23 @@ namespace ApiEstudo.Controllers
 				// List all topics for the project
 				PublisherServiceApiClient publisher = PublisherServiceApiClient.Create();
 				var topics = publisher.ListTopics(new ProjectName(attr.projectId));
-				
+
 				foreach (Topic topic1 in topics)
 				{
 					retorno.Add(topic1.Name);
 				}
-				
+
 			}
 			catch (Exception ex)
 			{
 
-				retorno.Add(ex.Message+"-------"+ ex.StackTrace);
+				retorno.Add(ex.Message + "-------" + ex.StackTrace);
 			}
 			return retorno;
 		}
 		/// <summary>
-		/// Passe o valor do projectId = estudogcp-261420
-		/// Passe o id do topico desejado
+		/// Passe o valor do projectId  = estudo-ci-cd
+		/// Passe o id do topico desejado = tp-negocio-ex
 		/// Passe a mensagem desejada
 		/// </summary>
 		/// <param name="attr"></param>
@@ -89,28 +111,39 @@ namespace ApiEstudo.Controllers
 		public IEnumerable<string> PublishToTopic([FromBody]CreatTopicModel attr)
 		{
 			List<string> retorno = new List<string>();
-			var topicName = new TopicName(attr.projectId, attr.topicId);
-
-			PublisherServiceApiClient publisher = PublisherServiceApiClient.Create();
-
-			// Create a message
-			var message = new PubsubMessage()
+			try
 			{
-				Data = ByteString.CopyFromUtf8(attr.message)
-			};
-			//message.Attributes.Add("myattrib", "its value");
-			var messageList = new List<PubsubMessage>() { message };
+				var topicName = new TopicName(attr.projectId, attr.topicId);
 
-			var response = publisher.Publish(topicName, messageList);
-			foreach (string messageId in response.MessageIds)
-			{
-				retorno.Add(messageId);
+				PublisherServiceApiClient publisher = PublisherServiceApiClient.Create();
+
+				// Create a message
+				var message = new PubsubMessage()
+				{
+					Data = ByteString.CopyFromUtf8(attr.message)
+				};
+				//message.Attributes.Add("myattrib", "its value");
+				var messageList = new List<PubsubMessage>() { message };
+
+				var response = publisher.Publish(topicName, messageList);
+				foreach (string messageId in response.MessageIds)
+				{
+					retorno.Add(messageId);
+				}
 			}
+			catch (Exception ex)
+			{
+
+				retorno.Add(ex.Message);
+				return retorno;
+			}
+
+
 			return retorno;
 		}
 		/// <summary>
-		/// Passe o valor do projectId = estudogcp-261420
-		/// passe o valor do subscriptionID
+		/// Passe o valor do projectId = estudo-ci-cd
+		/// passe o valor do subscriptionID = sb-negocio-ex
 		/// </summary>
 		/// <param name="attr"></param>
 		/// <returns></returns>
@@ -145,10 +178,11 @@ namespace ApiEstudo.Controllers
 
 				return retorno;
 			}
-			catch (RpcException e)
+			catch (RpcException ex)
 			{
-				Console.WriteLine("Erro: {0}", e.Message);
-				return null;
+				Console.WriteLine("Erro: {0}", ex.Message);
+				retorno.Add(new ListaRetorno { data = ex.Message });
+				return retorno;
 			}
 		}
 

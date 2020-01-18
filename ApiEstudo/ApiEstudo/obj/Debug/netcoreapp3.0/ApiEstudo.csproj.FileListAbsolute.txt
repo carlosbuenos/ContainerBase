@@ -15,7 +15,6 @@ C:\ContainerBase\ContainerBase\ApiEstudo\ApiEstudo\bin\Debug\netcoreapp3.0\ApiEs
 C:\ContainerBase\ContainerBase\ApiEstudo\ApiEstudo\bin\Debug\netcoreapp3.0\ApiEstudo.pdb
 C:\ContainerBase\ContainerBase\ApiEstudo\ApiEstudo\bin\Debug\netcoreapp3.0\ApiEstudo.xml
 C:\ContainerBase\ContainerBase\ApiEstudo\ApiEstudo\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.JsonPatch.dll
-C:\ContainerBase\ContainerBase\ApiEstudo\ApiEstudo\bin\Debug\netcoreapp3.0\Microsoft.Extensions.DependencyModel.dll
 C:\ContainerBase\ContainerBase\ApiEstudo\ApiEstudo\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
 C:\ContainerBase\ContainerBase\ApiEstudo\ApiEstudo\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\ContainerBase\ContainerBase\ApiEstudo\ApiEstudo\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -23,7 +22,6 @@ C:\ContainerBase\ContainerBase\ApiEstudo\ApiEstudo\bin\Debug\netcoreapp3.0\Swash
 C:\ContainerBase\ContainerBase\ApiEstudo\ApiEstudo\obj\Debug\netcoreapp3.0\ApiEstudo.csproj.CopyComplete
 C:\ContainerBase\ContainerBase\ApiEstudo\ApiEstudo\obj\Debug\netcoreapp3.0\ApiEstudo.dll
 C:\ContainerBase\ContainerBase\ApiEstudo\ApiEstudo\obj\Debug\netcoreapp3.0\ApiEstudo.pdb
-C:\ContainerBase\ContainerBase\ApiEstudo\ApiEstudo\bin\Debug\netcoreapp3.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\ContainerBase\ContainerBase\ApiEstudo\ApiEstudo\bin\Debug\netcoreapp3.0\Microsoft.Extensions.PlatformAbstractions.dll
 C:\ContainerBase\ContainerBase\ApiEstudo\ApiEstudo\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\ContainerBase\ContainerBase\ApiEstudo\ApiEstudo\bin\Debug\netcoreapp3.0\Microsoft.OpenApi.dll

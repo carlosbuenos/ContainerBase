@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.PlatformAbstractions;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Swagger;
 using System.IO;
 
 namespace ApiEstudo
@@ -36,7 +38,27 @@ namespace ApiEstudo
 			services.AddControllers();
 			services.AddSwaggerGen(c =>
 			{
-				c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiEstudo", Version = "v1" });
+				c.SwaggerDoc("v1", new OpenApiInfo
+				{
+					Title = "Api Estudo GCP",
+					Version = "v1",
+					Description = "Exemplo de API REST criada com o ASP.NET Core 3.0 para teste de ferramentas Google Cloud como pór exemplo Pub/Sub e BigQuery",
+					Contact = new OpenApiContact
+					{
+						Url = new System.Uri("https://github.com/carlosbuenos"),
+						Email = "ccarlosbueno@outlook.com",
+						Name = "Carlos Bueno"
+
+					},
+				});
+				string caminhoAplicacao =
+				 PlatformServices.Default.Application.ApplicationBasePath;
+				string nomeAplicacao =
+					PlatformServices.Default.Application.ApplicationName;
+				string caminhoXmlDoc =
+					Path.Combine(caminhoAplicacao, $"{nomeAplicacao}.xml");
+
+				c.IncludeXmlComments(caminhoXmlDoc);
 			});
 		}
 		/// <summary>
@@ -67,7 +89,7 @@ namespace ApiEstudo
 			{
 				endpoints.MapControllers();
 			});
-			
+
 		}
 	}
 }

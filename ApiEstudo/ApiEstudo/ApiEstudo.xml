@@ -4,29 +4,100 @@
         <name>ApiEstudo</name>
     </assembly>
     <members>
+        <member name="T:ApiEstudo.ApiModel.CreatTopicModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ApiEstudo.ApiModel.CreatTopicModel.projectId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ApiEstudo.ApiModel.CreatTopicModel.topicId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ApiEstudo.ApiModel.CreatTopicModel.message">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ApiEstudo.ApiModel.CreatTopicModel.subscriptionID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ApiEstudo.ApiModel.ListaRetorno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ApiEstudo.ApiModel.ListaRetorno.id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ApiEstudo.ApiModel.ListaRetorno.publishDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ApiEstudo.ApiModel.ListaRetorno.data">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:ApiEstudo.Controllers.EstudoPubSubController">
             <summary>
             
             </summary>
         </member>
+        <member name="F:ApiEstudo.Controllers.EstudoPubSubController.ProjectId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ApiEstudo.Controllers.EstudoPubSubController.TopicId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ApiEstudo.Controllers.EstudoPubSubController.SubscriptionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ApiEstudo.Controllers.EstudoPubSubController._logger">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ApiEstudo.Controllers.EstudoPubSubController.#ctor(Microsoft.Extensions.Logging.ILogger{ApiEstudo.Controllers.EstudoPubSubController})">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+        </member>
         <member name="M:ApiEstudo.Controllers.EstudoPubSubController.CreateTopic(ApiEstudo.ApiModel.CreatTopicModel)">
             <summary>
-             Passe o valor do projectId = estudogcp-261420
-             Passe o id do topico desejado.
+             Passe o valor do projectId = estudo-ci-cd
+             Passe o id do topico desejado = tp-negocio-ex.
             </summary>
             <param name="attr"></param>
         </member>
         <member name="M:ApiEstudo.Controllers.EstudoPubSubController.ListTopics(ApiEstudo.ApiModel.CreatTopicModel)">
             <summary>
-            Passe apenas o valor do projectId = estudogcp-261420
+            Passe apenas o valor do projectId = estudo-ci-cd
             </summary>
             <param name="attr"></param>
             <returns></returns>
         </member>
         <member name="M:ApiEstudo.Controllers.EstudoPubSubController.PublishToTopic(ApiEstudo.ApiModel.CreatTopicModel)">
             <summary>
-            Passe o valor do projectId = estudogcp-261420
-            Passe o id do topico desejado
+            Passe o valor do projectId  = estudo-ci-cd
+            Passe o id do topico desejado = tp-negocio-ex
             Passe a mensagem desejada
             </summary>
             <param name="attr"></param>
@@ -34,8 +105,8 @@
         </member>
         <member name="M:ApiEstudo.Controllers.EstudoPubSubController.ShowMessagesForSubscription(ApiEstudo.ApiModel.CreatTopicModel)">
             <summary>
-            Passe o valor do projectId = estudogcp-261420
-            passe o valor do subscriptionID
+            Passe o valor do projectId = estudo-ci-cd
+            passe o valor do subscriptionID = sb-negocio-ex
             </summary>
             <param name="attr"></param>
             <returns></returns>
