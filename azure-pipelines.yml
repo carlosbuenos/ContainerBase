@@ -6,12 +6,14 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
+  imageName: 'ApiEstudo-Image'
 
 stages:
 - stage: Build
   displayName: Build image
   jobs:  
   - job: Build
+    container: "$(imageName)"
     displayName: Build
     pool:
       vmImage: 'ubuntu-latest'
@@ -30,7 +32,7 @@ stages:
       displayName: Lock File Mnifest
       inputs:
         filename: /bin/bash
-        arguments: '-c "awk ''{gsub(\"ApiEstudo\", \"gcr.io/$(DockerImageName):$(Build.BuildId)\", $0); print}'' deployment.yaml > $(build.artifactstagingdirectory)/deployment.yaml"'
+        arguments: '-c "awk ''{gsub(\"ApiEstudo\", \"gcr.io/$(imageName):$(Build.BuildId)\", $0); print}'' deployment.yaml > $(build.artifactstagingdirectory)/deployment.yaml"'
 
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifact'
