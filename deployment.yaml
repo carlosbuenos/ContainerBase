@@ -16,18 +16,22 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: apiestudo
+  name: apiestudo-ingress
 spec:
-  backend:
-    serviceName: apiestudo
-    servicePort: 81
+  rules:
+  - http:
+      paths:
+      - path: /
+      backend:
+        serviceName: Service
+        servicePort: 81
 
 ---
 
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: apiestudo
+  name: apiestudo-deploy
 spec:
   replicas: 2
   template:
@@ -40,7 +44,18 @@ spec:
         image: ApiEstudo
         ports:
           - containerPort: 81
-        
+        livenessProbe:     
+          httpGet:
+            path: /
+            port: 81
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        readinessProbe:    
+          httpGet:
+            path: /
+            port: 81
+          initialDelaySeconds: 3
+          periodSeconds: 5
         resources:
           limits:
             cpu: "1"
