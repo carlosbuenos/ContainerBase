@@ -16,19 +16,14 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: apiestudo-ingress
+  name: ingress-apiestudo
 spec:
-  rules:
-  - http:
-      paths:
-      - path: /
-      backend:
-        serviceName: Service
-        servicePort: 81
+  backend:
+    serviceName: apiestudo
+    servicePort: 81
 
 ---
 
-apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: apiestudo-deploy
@@ -58,7 +53,7 @@ spec:
           periodSeconds: 5
         resources:
           limits:
-            cpu: "1"
+            cpu: "2"
             memory: 3Gi
           requests:
             cpu: 200m
