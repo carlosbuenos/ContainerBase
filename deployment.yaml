@@ -38,6 +38,8 @@ spec:
       containers:
       - name: apiestudo
         image: ApiEstudo
+        ports:
+          - containerPort: 81
         livenessProbe:     
           httpGet:
             path: /
@@ -52,6 +54,6 @@ spec:
           periodSeconds: 5
         resources:
           limits:
-            memory: 4024Mi
+            memory: 8024Mi
           requests:
-            memory: 1024Mi
+            memory: 4024Mi
