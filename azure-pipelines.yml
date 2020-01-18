@@ -42,4 +42,3 @@ stages:
         action: 'deploy'
         kubernetesServiceConnection: 'clbueno-1'
         namespace: 'default'
-           
