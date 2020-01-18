@@ -40,7 +40,7 @@ spec:
         image: ApiEstudo
         ports:
           - containerPort: 81
-            targetPort:81
+            targetPort: 81
         livenessProbe:     
           httpGet:
             path: /
