@@ -54,6 +54,8 @@ spec:
           periodSeconds: 5
         resources:
           limits:
-            memory: 16Gi
-          requests:
+            cpu: "2"
             memory: 4Gi
+          requests:
+            cpu: 200m
+            memory: 2Gi
