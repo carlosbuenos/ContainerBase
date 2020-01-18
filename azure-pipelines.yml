@@ -6,7 +6,7 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
-  DockerImageName: 'ApiEstudo'
+  DockerImageName: 'estudo-ci-cd/ApiEstudo'
 stages:
 - stage: Build
   displayName: Build image
@@ -31,7 +31,7 @@ stages:
       inputs:
         filename: /bin/bash
        # arguments: '-c "awk ''{gsub(\"ApiEstudo\", \"gcr.io/$(DockerImageName):Latest\", $0); print}'' deployment.yaml > $(build.artifactstagingdirectory)/deployment.yaml"'
-        arguments: '-c "awk ''{gsub(\"ApiEstudo\", \"$(DockerImageName):$(Build.BuildId)\", $0); print}'' deployment.yaml > $(build.artifactstagingdirectory)/deployment.yaml"'
+        arguments: '-c "awk ''{gsub(\"ApiEstudo\", \"gcr.io/$(DockerImageName):$(Build.BuildId)\", $0); print}'' deployment.yaml > $(build.artifactstagingdirectory)/deployment.yaml"'
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifact'
       inputs:
