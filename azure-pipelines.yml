@@ -21,6 +21,7 @@ stages:
       displayName: Build an image
       inputs:
         containerRegistry: 'gcr_teste'
+        imageName: '$(DockerImageName):$(Build.BuildId)'
         repository: 'estudo-ci-cd/ApiEstudo'
         command: buildAndPush
         dockerfile: 'ApiEstudo/Dockerfile'
