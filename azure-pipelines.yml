@@ -41,5 +41,5 @@ stages:
       inputs:
         action: 'deploy'
         kubernetesServiceConnection: 'clbueno-1'
-        namespace: 'apiestudo'
+        namespace: 'ApiEstudo'
         manifests: '$(build.artifactstagingdirectory)'
