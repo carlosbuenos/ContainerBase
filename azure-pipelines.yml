@@ -6,8 +6,8 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
-  DockerImageName: 'estudo-ci-cd/apiestudo'
-  RepositoryName: 'estudo-ci-cd/apiestudo'
+  DockerImageName: 'estudo-ci-cd/github.com/carlosbuenos/containerbase'
+  RepositoryName: 'estudo-ci-cd/github.com/carlosbuenos/containerbase'
 stages:
 - stage: Build
   displayName: Build image
@@ -31,8 +31,7 @@ stages:
       displayName: Lock File Mnifest
       inputs:
         filename: /bin/bash
-       # arguments: '-c "awk ''{gsub(\"ApiEstudo\", \"gcr.io/$(DockerImageName):Latest\", $0); print}'' deployment.yaml > $(build.artifactstagingdirectory)/deployment.yaml"'
-        arguments: '-c "awk ''{gsub(\"ApiEstudo\", \"gcr.io/$(DockerImageName):$(Build.BuildId)\", $0); print}'' deployment.yaml > $(build.artifactstagingdirectory)/deployment.yaml"'
+       arguments: '-c "awk ''{gsub(\"ApiEstudo\", \"gcr.io/$(DockerImageName):$(Build.BuildId)\", $0); print}'' deployment.yaml > $(build.artifactstagingdirectory)/deployment.yaml"'
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifact'
       inputs:
