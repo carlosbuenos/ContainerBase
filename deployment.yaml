@@ -1,7 +1,7 @@
 ﻿apiVersion: v1
 kind: Service
 metadata:
-  name: apiestudo
+  name: apiestudo-service
 spec:
   ports:
   - port: 81
@@ -10,7 +10,7 @@ spec:
     name: http
   selector:
     app: apiestudo
-  type: NodePort
+  type: LoadBalancer
 
 
 ---
