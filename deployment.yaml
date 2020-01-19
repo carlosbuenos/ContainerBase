@@ -28,6 +28,7 @@ spec:
       containers:
       - name: apiestudo
         image: ApiEstudo
+        restartPolicy: Always
         ports:
           - containerPort: 81
         livenessProbe:     
