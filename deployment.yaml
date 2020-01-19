@@ -28,21 +28,9 @@ spec:
       containers:
       - name: apiestudo
         image: ApiEstudo
-        restartPolicy: Always
         ports:
           - containerPort: 81
-        livenessProbe:     
-          httpGet:
-            path: /
-            port: 81
-          initialDelaySeconds: 5
-          periodSeconds: 5
-        readinessProbe:    
-          httpGet:
-            path: /
-            port: 81
-          initialDelaySeconds: 3
-          periodSeconds: 5
+       
         resources:
           limits:
             cpu: "1"
