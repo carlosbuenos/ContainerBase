@@ -12,7 +12,14 @@ spec:
     app: apiestudo
   type: NodePort
 
-
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: apiestudo
+spec:
+  backend:
+    serviceName: apiestudo
+    servicePort: 81
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
