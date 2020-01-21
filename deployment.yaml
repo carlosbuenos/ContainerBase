@@ -34,10 +34,10 @@ spec:
         image: ApiEstudo
         volumeMounts:
         - name: google-cloud-key
-          mountPath: /home/ccarlosbueno/pubsub-account-service
+          mountPath: /var/secrets/google
         env:
         - name: GOOGLE_APPLICATION_CREDENTIALS
-          value: /home/ccarlosbueno/pubsub-account-service/estudo-ci-cd-652d36b976e0.json
+          value: /var/secrets/google/key.json
         ports:
           - containerPort: 81
         resources:
