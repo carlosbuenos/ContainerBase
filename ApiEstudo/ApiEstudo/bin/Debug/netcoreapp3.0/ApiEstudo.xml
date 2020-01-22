@@ -111,6 +111,22 @@
             <param name="attr"></param>
             <returns></returns>
         </member>
+        <member name="M:ApiEstudo.Controllers.EstudoPubSubController.CreateSubscription(ApiEstudo.ApiModel.CreatTopicModel)">
+            <summary>
+            Teste para criar uma assinatura em um tópico específico topicId = estudo-ci-cd
+            </summary>
+            <param name="projectId"></param>
+            <param name="topicId"></param>
+            <param name="subscriptionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApiEstudo.Controllers.EstudoPubSubController.ShowMessagesForSubscriptionWithListen(ApiEstudo.ApiModel.CreatTopicModel)">
+            <summary>
+            Teste para buscar mensagens de uma assinatura de forma asyncrona 
+            </summary>
+            <param name="attr"></param>
+            <returns></returns>
+        </member>
         <member name="T:ApiEstudo.Controllers.WeatherForecastController">
             <summary>
             

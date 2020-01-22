@@ -26,5 +26,6 @@ namespace ApiEstudo.ApiModel
 		/// 
 		/// </summary>
 		public string subscriptionID { get; set; }
+		public bool acknowledge { get; set; }
 	}
 }
